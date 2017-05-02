@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            #svgOne {
+                width: 100vw;
+                height: 100vh;
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50vw;
+                min-width: 22em;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <svg id="svgOne" xmlns="http://www.w3.org/2000/svg">
+        </svg>
+
+        <img src="img/audiokidsworship.png" alt="">
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        <script>
+
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+
+            function getRandomIntInclusive(min, max) {
+              min = Math.ceil(min);
+              max = Math.floor(max);
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            // get random integer coordinate from perimeter of window
+            let getRandCoord = function(minX, minY, maxX, maxY) {
+                var opt = function() {
+                    return Math.random() > 0.5;
+                };
+
+                return opt() ? 
+                    {
+                        x: opt() ? minX : maxX,
+                        y: getRandomIntInclusive(minY, maxY)
+                    } 
+                    :
+                    {
+                        x: getRandomIntInclusive(minX, maxX),
+                        y: opt() ? minY : maxY
+                    };
+            };
+
+            var svgns = "http://www.w3.org/2000/svg";
+            for (var i = 0; i < 100; i++) {
+                var pt1 = getRandCoord(0, 0, width, height),
+                    pt2 = getRandCoord(0, 0, width, height);
+                    
+                var line = document.createElementNS(svgns, 'line');
+                line.setAttributeNS(null, 'x1', pt1.x);
+                line.setAttributeNS(null, 'y1', pt1.y);
+                line.setAttributeNS(null, 'x2', pt2.x);
+                line.setAttributeNS(null, 'y2', pt2.y);
+                line.setAttributeNS(null, 'stroke-width', 1.25);
+                line.setAttributeNS(null, 'stroke', "#eee");
+                document.getElementById('svgOne').appendChild(line);
+            }
+        </script>
+    </body>
+</html>
