@@ -166,7 +166,7 @@
 
             var width = window.innerWidth;
             var height = window.innerHeight;
-            let mobile = window.innerWidth < 600;
+            var mobile = window.innerWidth < 600;
 
             function getRandomIntInclusive(min, max) {
               min = Math.ceil(min);
@@ -175,7 +175,7 @@
             }
 
             // get random integer coordinate from perimeter of window
-            let getRandCoord = function(minX, minY, maxX, maxY) {
+            var getRandCoord = function(minX, minY, maxX, maxY) {
                 var opt = function() {
                     return Math.random() > 0.5;
                 };
